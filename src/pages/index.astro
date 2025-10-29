@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const home = await getEntry('pages', 'home');
+const { Content } = await home.render();
+---
+
+<Layout title={home.data.title}>
+  <div class="prose prose-lg mx-auto">
+    <Content />
+  </div>
+</Layout>
